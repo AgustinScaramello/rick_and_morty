@@ -1,0 +1,27 @@
+.div{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(78, 77, 74, .9);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px black;
+    border: 5px solid #94ba65;
+    height: 500px;
+    width: 400px;
+}
+
+.label{
+    font-family: 'Tilt Warp', cursive;
+    font-size: 19px;
+    color: #94ba65;
+    -webkit-text-stroke: .5px black;
+    text-shadow: 1px 1px 2px black;
+}
+

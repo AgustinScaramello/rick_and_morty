@@ -1,0 +1,59 @@
+.card{
+    /*Cartas*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 550px;
+    width: 270px;
+    margin: 10px;
+    background-color: rgba(78, 77, 74, .9);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px black;
+    border: 5px solid #94ba65;
+    position: relative;
+}
+
+.fuente{
+    /*Fuente*/
+    flex-wrap: wrap;
+    font-family: 'Tilt Warp', cursive;
+    font-size: 19px;
+    color: #94ba65;
+    -webkit-text-stroke: .5px black;
+    text-shadow: 1px 1px 2px black;
+    margin: 10px;
+    line-height: .9;
+}
+
+.linkNombre{
+    text-decoration: none;
+}
+
+.name{
+    /*Nombre del personaje*/
+    font-family: 'Tilt Prism', cursive;
+    margin: 30px 0px 5px 0px;
+    font-size: 30px;
+    color: beige;
+    text-shadow: 3px 3px 3px black;
+    margin-bottom: 15px;
+}
+
+.imagen{
+    /*Imagen de la carta*/
+    width: 270px;
+    border-radius: 10px 10px 0px 0px;
+    filter: brightness(95%);
+}
+
+.boton{
+    /*Boton salir*/
+    background-color: #94ba65;
+    font-family: 'Tilt Warp', cursive;
+    color: black;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
