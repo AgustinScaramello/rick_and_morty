@@ -1,20 +1,25 @@
 .div{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 100px; 
+}
+
+.logo{
+    display: flex;
+    width: 350px;
+    align-self: center;
 }
 
 .form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     background-color: rgba(78, 77, 74, .9);
     border-radius: 15px;
     box-shadow: 0px 0px 20px 5px black;
     border: 5px solid #94ba65;
     height: 500px;
-    width: 400px;
+    width: 450px;
 }
 
 .label{
@@ -25,3 +30,38 @@
     text-shadow: 1px 1px 2px black;
 }
 
+.input{
+    text-decoration: none;
+    background-color: #94ba65;
+    font-family: 'Tilt Warp', cursive;
+    color: black;
+    border-radius: 50px;
+    height: 30px;
+    width: 200px;
+    margin-left: 20px;
+    box-shadow: 2px 2px 10px 0px black;
+    text-align: center;
+}
+
+.errors{
+    font-size: 16px;
+    color: red;
+    font-family: 'Tilt Warp', cursive;
+    -webkit-text-stroke: .5px black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.submit{
+    background-color: #94ba65;
+    font-family: 'Tilt Warp', cursive;
+    font-size: 20px;
+    color: #40b5cb;
+    -webkit-text-stroke: .9px black;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 50px;
+    height: 30px;
+    box-shadow: 2px 2px 10px 0px black;
+    align-self: center;
+    height: 50px;
+    width: 150px;
+}

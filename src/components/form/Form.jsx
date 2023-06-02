@@ -1,6 +1,7 @@
 import styled from "./Form.module.css";
 import { useState } from "react";
 import validation from "./validation";
+import logo from "../imagenes/LogoRyMSinFondo.png";
 
 export default function Form (props) {
     
@@ -30,19 +31,20 @@ export default function Form (props) {
     return(
         <div className={styled.div}>
         <form className={styled.form}>
+            <img src={logo} alt="Rick and Morty" className={styled.logo} />
             <div>
                 <label htmlFor="" className={styled.label}>Email:</label>
-                <input type="text" name="email" value={userData.email} onChange={handleChange} />
-                <p>{errors.email}</p>
+                <input type="text" name="email" value={userData.email} onChange={handleChange} className={styled.input} />
+                <p className={styled.errors}>{errors.email}</p>
             </div>
 
             <div>
-                <label htmlFor="" className={styled.label}>Password</label>
-                <input type="text" name="password" value={userData.password} onChange={handleChange} />
-                <p>{errors.password}</p>
+                <label htmlFor="" className={styled.label}>Password:</label>
+                <input type="text" name="password" value={userData.password} onChange={handleChange} className={styled.input} />
+                <p className={styled.errors}>{errors.password}</p>
             </div>
 
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit} className={styled.submit}>SUBMIT</button>
         </form>
         </div>
 

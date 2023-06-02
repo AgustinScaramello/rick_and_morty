@@ -40,7 +40,7 @@ function Card({ id,
    return (
       <div className={styled.card}>
 
-         <div>
+         <div className={styled.corazon}>
          {
             isFav ? (
                <button onClick={handleFavorite}>❤️</button>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styled from "./Detail.module.css";
 
 export default function Detail() {
     
@@ -20,13 +21,15 @@ export default function Detail() {
      }, [id]);
 
     return (
-                <div>
-                    <h1>Nombre: {character.name}</h1>
-                    <h2>Estado: {character.status}</h2>
-                    <h2>Especie: {character.species}</h2>
-                    <h2>Genero: {character.gender}</h2>
-                    <h2>Origen: {character.origin?.name}</h2>
-                    <img src={character.image} alt={character.name} />
+                <div className={styled.divGeneral}>
+                    <img src={character.image} alt={character.name} className={styled.imagen} />
+                    <div className={styled.divInfo}>
+                        <h1 className={styled.name}>{character.name}</h1>
+                        <h2 className={styled.fuente}>Estado: {character.status}</h2>
+                        <h2 className={styled.fuente}>Especie: {character.species}</h2>
+                        <h2 className={styled.fuente}>Genero: {character.gender}</h2>
+                        <h2 className={styled.fuente}>Origen: {character.origin?.name}</h2>
+                    </div>
                 </div>
         )
 };

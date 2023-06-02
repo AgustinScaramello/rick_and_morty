@@ -1,0 +1,46 @@
+.divGeneral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.foto{
+    display: flex;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px black;
+    border: 5px solid #94ba65;
+    z-index: 10;
+}
+
+.divInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0px 50px 50px 0px;
+    width: 700px;
+    height: 500px;
+
+    background-color: rgba(78, 77, 74, .9);
+    box-shadow: 0px 0px 20px 5px black;
+    z-index: 1;
+}
+
+.nombre{
+    font-family: 'Tilt Prism', cursive;
+    font-size: 60px;
+    color: beige;
+    text-shadow: 3px 3px 3px black;
+
+}
+
+.fuente{
+    flex-wrap: wrap;
+    font-family: 'Tilt Warp', cursive;
+    font-size: 25px;
+    color: #94ba65;
+    -webkit-text-stroke: .5px black;
+    text-shadow: 1px 1px 2px black;
+    line-height: .5;
+}

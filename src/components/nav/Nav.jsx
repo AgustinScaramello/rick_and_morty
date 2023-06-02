@@ -26,7 +26,7 @@ export default function Nav(props){
             >Favorites
             </NavLink>
 
-            <SearchBar onSearch={props.onSearch} className={styled.searchBar}/>
+            <SearchBar onSearch={props.onSearch} />
         </div>
     )
 }
