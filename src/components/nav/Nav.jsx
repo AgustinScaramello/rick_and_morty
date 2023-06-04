@@ -1,12 +1,16 @@
 import SearchBar from "../searchbar/SearchBar";
 import styled from "./Nav.module.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../imagenes/LogoRyMSinFondo.png"
 
 export default function Nav(props){
     return(
         <div className={styled.nav}>
-            <img src={logo} alt="Rick and Morty" className={styled.logo} />
+
+            <Link to='/home'>
+                <img src={logo} alt="Rick and Morty" className={styled.logo} />
+            </Link>
+            
 
             <NavLink
             to='/about'

@@ -24,4 +24,5 @@
     box-shadow: 2px 2px 10px 0px black;
     -webkit-text-stroke: .5px black;
     text-shadow: 1px 1px 2px black;
+    cursor: pointer;
 }
