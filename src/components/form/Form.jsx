@@ -34,13 +34,13 @@ export default function Form (props) {
             <img src={logo} alt="Rick and Morty" className={styled.logo} />
             <div>
                 <label htmlFor="" className={styled.label}>Email:</label>
-                <input type="text" name="email" value={userData.email} onChange={handleChange} className={styled.input} />
+                <input type="text" name="email" value={userData.email} onChange={handleChange} placeholder="example@mail.com" className={styled.input} />
                 <p className={styled.errors}>{errors.email}</p>
             </div>
 
             <div>
                 <label htmlFor="" className={styled.label}>Password:</label>
-                <input type="text" name="password" value={userData.password} onChange={handleChange} className={styled.input} />
+                <input type="text" name="password" value={userData.password} onChange={handleChange} placeholder="Contraseña..." className={styled.input} />
                 <p className={styled.errors}>{errors.password}</p>
             </div>
 
