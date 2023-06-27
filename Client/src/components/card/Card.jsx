@@ -61,7 +61,7 @@ function Card({ id,
          <h2 className={styled.fuente}>Estado: {status}</h2>
          <h2 className={styled.fuente}>Especie: {species}</h2>
          <h2 className={styled.fuente}>Genero: {gender}</h2>
-         <h2 className={styled.fuente}>Origen: {origin?.name}</h2>
+         <h2 className={styled.fuente}>Origen: {origin}</h2>
       </div>
    );
 }

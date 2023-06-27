@@ -6,13 +6,13 @@ export default function Cards(props) {
       <div className={styled.cards}>
          {props.characters?.map(({id, name, species, status, gender, origin, image }) => {
           return <Card 
-            id= {id}
             key= {id}
+            id= {id}
             name= {name}
             status= {status}
             species= {species}
             gender= {gender}
-            origin= {origin?.name}
+            origin= {origin.name}
             image= {image}
             onClose = {props.onClose}
           />;

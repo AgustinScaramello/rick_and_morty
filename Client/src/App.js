@@ -8,8 +8,6 @@ import Favorites from "./components/favorites/Favorites";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-const EMAIL = "agusscaramello@gmail.com";
-const PASSWORD = "12345678";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -41,10 +39,13 @@ function App() {
   };
 
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   };
 
   return (
