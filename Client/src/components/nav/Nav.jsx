@@ -6,12 +6,13 @@ import logo from "../imagenes/LogoRyMSinFondo.png"
 export default function Nav(props){
     return(
         <div className={styled.nav}>
-
+            <div className={styled.contenedorLogo}>
             <Link to='/home'>
                 <img src={logo} alt="Rick and Morty" className={styled.logo} />
             </Link>
-            
+            </div>
 
+            <div className={styled.botones}>
             <NavLink
             to='/about'
             className={styled.links}
@@ -29,8 +30,11 @@ export default function Nav(props){
             className={styled.links}
             >Favorites
             </NavLink>
+            </div>
 
+            <div className={styled.barraBuscar}>
             <SearchBar onSearch={props.onSearch} />
+            </div>
         </div>
     )
 }
