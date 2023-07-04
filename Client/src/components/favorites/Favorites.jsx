@@ -21,16 +21,18 @@ function Favorites({myFavorites}){
 
   return(
     <div>
-      <select onChange={handleOrder} className={styled.selectOrder}>
-        <option value="A">Ascendente</option>
-        <option value="D">Descendente</option>
-      </select>
-      <select onChange={handleFilter} className={styled.selectFilter}>
-        <option value="Male">Masculino</option>
-        <option value="Female">Femenino</option>
-        <option value="Genderless">Sin Genero</option>
-        <option value="unknown">Desconocido</option>
-      </select>
+      <div className={styled.botones}>
+        <select onChange={handleOrder}>
+          <option value="A" >Ascendente</option>
+          <option value="D">Descendente</option>
+        </select>
+        <select onChange={handleFilter}>
+          <option value="Male">Masculino</option>
+          <option value="Female">Femenino</option>
+          <option value="Genderless">Sin Genero</option>
+          <option value="unknown">Desconocido</option>
+        </select>
+      </div>
       <Cards characters={myFavorites}/>
     </div>
   )

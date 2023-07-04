@@ -1,10 +1,20 @@
+.container{
+    box-shadow: 2px 2px 10px 0px black;
+}
+
 .inputbuscar{
+    text-decoration: none;
+    font-family: 'Tilt Warp', cursive;
     background-color: #94ba65;
     border-radius: 50px 0 0 50px;
     border: 0;
     height: 30px;
     width: 300px;
-    box-shadow: 2px 2px 10px 0px black;
+    padding-left: 20px;
+}
+
+.inputbuscar:focus{
+    outline: 0;
 }
 
 .botonagregar{
@@ -14,7 +24,6 @@
     border-radius: 0 50px 50px 0;
     border: 0;
     height: 30px;
-    box-shadow: 2px 2px 10px 0px black;
     -webkit-text-stroke: .5px black;
     text-shadow: 1px 1px 2px black;
     cursor: pointer;

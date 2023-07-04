@@ -52,6 +52,10 @@
     -moz-transform: scale(1.05) ;
 }
 
+.input:valid{
+    background-color: #94ba65;
+}
+
 .errors{
     font-size: 16px;
     color: red;

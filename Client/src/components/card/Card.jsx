@@ -40,12 +40,12 @@ function Card({ id,
    return (
       <div className={styled.card}>
 
-         <div className={styled.corazon}>
+         <div className={styled.fav}>
          {
             isFav ? (
-               <button onClick={handleFavorite}>❤️</button>
+               <button className={styled.corazon} onClick={handleFavorite}>❤️</button>
             ) : (
-               <button onClick={handleFavorite}>🤍</button>
+               <button className={styled.corazon} onClick={handleFavorite}>🤍</button>
             )
          }
          </div>
