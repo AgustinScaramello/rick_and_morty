@@ -45,6 +45,12 @@
     margin-bottom: 15px;
 }
 
+.name:hover{
+    transform: scale(1.1) ;
+    -webkit-transform: scale(1.1) ;
+    -moz-transform: scale(1.1) ;
+}
+
 .imagen{
     /*Imagen de la carta*/
     width: 270px;
@@ -79,6 +85,7 @@
 }
 
 .corazon{
+    font-size: 20px;
     background: none;
     border: none;
     cursor: pointer;

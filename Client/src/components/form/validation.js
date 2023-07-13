@@ -14,7 +14,7 @@ export default function validation(userData) {
   if (!regexIncludesNumber.test(userData.password))
     errors.password = "Debe tener al menos un numero";
 
-  if (userData.password < 6 || userData.password > 10)
+  if (userData.password.length < 6 || userData.password.length > 10)
     errors.password = "Debe tener entre 6 y 10 caracteres";
 
   return errors;

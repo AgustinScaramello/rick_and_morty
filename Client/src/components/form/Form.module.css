@@ -44,16 +44,13 @@
     width: 300px;
     box-shadow: 2px 2px 10px 0px black;
     text-align: center;
+    background-clip: padding-box;
 }
 
 .input:hover {
     transform: scale(1.05) ;
     -webkit-transform: scale(1.05) ;
     -moz-transform: scale(1.05) ;
-}
-
-.input:valid{
-    background-color: #94ba65;
 }
 
 .errors{
@@ -85,3 +82,5 @@
     -webkit-transform: scale(1.1) ;
     -moz-transform: scale(1.1) ;
 }
+
+

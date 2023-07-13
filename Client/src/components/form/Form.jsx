@@ -34,7 +34,7 @@ export default function Form (props) {
             <img src={logo} alt="Rick and Morty" className={styled.logo} />
             <div>
                 <label htmlFor="" className={styled.label}>CUENTA</label>
-                <input type="text" name="email" value={userData.email} onChange={handleChange} placeholder="example@mail.com (rym@mail.com)" className={styled.input} />
+                <input type="text" name="email" value={userData.email} onChange={handleChange} placeholder="example@mail.com (rym@mail.com)" autoComplete="off" className={styled.input} />
                 <p className={styled.errors}>{errors.email}</p>
             </div>
 

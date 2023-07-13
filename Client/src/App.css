@@ -1,3 +1,20 @@
 .App {
    text-align: center;
 }
+
+body {
+   scrollbar-width: 1px;
+   scrollbar-color: #94ba65 #4e4d4a; 
+ }
+ 
+ body::-webkit-scrollbar {
+   width: 8px;
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+   background-color: #94ba65; 
+ }
+ 
+ body::-webkit-scrollbar-track {
+   background-color: #4e4d4a; 
+ }
