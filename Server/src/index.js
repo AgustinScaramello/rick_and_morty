@@ -1,16 +1,9 @@
+require("dotenv").config();
 const server = require("./app");
 const { conn } = require("./DB_connection");
-const PORT = 3001;
+const { PORT } = process.env;
 
-conn
-  .sync({ force: true })
-  .then(() => {
-    console.log("Sincronización completada");
-  })
-  .catch((error) => {
-    console.error("Error en la sincronización:", error);
-  });
-
-server.listen(PORT, () => {
+server.listen(PORT, async () => {
+  await conn.sync({ force: true });
   console.log("Server raised in port: " + PORT);
 });
