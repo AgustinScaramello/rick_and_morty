@@ -1,4 +1,4 @@
-const { Favorite } = require("../DB_connection");
+const { allFav, createFav } = require("../controllers/favController");
 
 const postFav = async (req, res) => {
   const { name, origin, status, image, species, gender } = req.body;
@@ -7,12 +7,12 @@ const postFav = async (req, res) => {
     return res.status(401).json({ error: "Faltan datos" });
   }
 
-  try {
-    await Favorite.findOrCreate({
-      where: { name, origin, status, image, species, gender },
-    });
+  const char = { name, origin, status, image, species, gender };
 
-    const favorites = await Favorite.findAll();
+  try {
+    await createFav(char);
+
+    const favorites = allFav();
 
     return res.status(200).json(favorites);
   } catch (error) {

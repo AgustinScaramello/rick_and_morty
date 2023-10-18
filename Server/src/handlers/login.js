@@ -1,4 +1,4 @@
-const { User } = require("../DB_connection");
+const { findUser } = require("../controllers/userController");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -8,13 +8,13 @@ const login = async (req, res) => {
   }
 
   try {
-    const user = await User.findOne({ where: { email } });
+    const user = await findUser(email);
 
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
-    if (user.password === password) {
+    if (user && user.password === password) {
       return res.status(200).json({ access: true });
     } else {
       return res.status(403).json({ error: "Contraseña incorrecta" });
