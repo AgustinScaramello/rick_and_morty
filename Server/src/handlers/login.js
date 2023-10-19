@@ -1,7 +1,7 @@
 const { findUser } = require("../controllers/userController");
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.query;
 
   if (!email || !password) {
     return res.status(400).json({ error: "Faltan datos" });

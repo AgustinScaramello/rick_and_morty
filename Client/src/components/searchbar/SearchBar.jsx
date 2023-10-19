@@ -1,13 +1,20 @@
 import React from "react";
+import { useDispatch} from "react-redux"
 import styled from "./SearchBar.module.css"
 import { useState } from "react";
+import {getCharById} from "../../redux/actions"
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar() {
+   const dispatch = useDispatch()
 
    const [id, setId] = useState('');
 
    const handleChange = (event) => {
       setId(event.target.value)
+   }
+
+   const onSearch = (id) =>{
+      dispatch(getCharById(id))
    }
 
    return (

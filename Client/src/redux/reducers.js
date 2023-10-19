@@ -1,4 +1,11 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actions";
+import {
+  ADD_FAV,
+  REMOVE_FAV,
+  FILTER,
+  ORDER,
+  GET_CHAR,
+  REMOVE_CHAR,
+} from "./actions";
 
 const initialState = {
   allCharacters: [],
@@ -7,6 +14,19 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_CHAR:
+      return {
+        ...state,
+        allCharacters: [...state.allCharacters, action.payload],
+      };
+    case REMOVE_CHAR:
+      const filteredChar = state.allCharacters.filter(
+        (char) => char.id !== action.payload
+      );
+      return {
+        ...state,
+        allCharacters: filteredChar,
+      };
     case ADD_FAV:
       return {
         ...state,
@@ -16,12 +36,12 @@ const rootReducer = (state = initialState, action) => {
     case REMOVE_FAV:
       return { ...state, myFavorites: action.payload };
     case FILTER:
-      const filtered = state.allCharacters.filter(
+      const filteredFav = state.allCharacters.filter(
         (char) => char.gender === action.payload
       );
       return {
         ...state,
-        myFavorites: filtered,
+        myFavorites: filteredFav,
       };
     case ORDER:
       return {

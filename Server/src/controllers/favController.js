@@ -1,4 +1,4 @@
-const { Favorite } = require("../DB_connection");
+const { Favorite } = require("../db");
 
 //--------------------------------------------------------
 

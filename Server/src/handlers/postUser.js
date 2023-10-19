@@ -1,4 +1,3 @@
-const { User } = require("../DB_connection");
 const { createUser } = require("../controllers/userController");
 
 const postUser = async (req, res) => {
