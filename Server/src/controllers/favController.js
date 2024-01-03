@@ -15,9 +15,7 @@ const destroyFav = async (id) => {
 //--------------------------------------------------------
 
 const createFav = async (char) => {
-  return await Favorite.findOrCreate({
-    where: char,
-  });
+  return await Favorite.create(char);
 };
 
 //--------------------------------------------------------

@@ -3,7 +3,7 @@ import styled from "./Nav.module.css"
 import { NavLink, Link } from "react-router-dom";
 import logo from "../imagenes/LogoRyMSinFondo.png"
 
-export default function Nav(props){
+export default function Nav(){
     return(
         <div className={styled.nav}>
             <div className={styled.contenedorLogo}>
@@ -33,7 +33,7 @@ export default function Nav(props){
             </div>
 
             <div className={styled.barraBuscar}>
-                <SearchBar onSearch={props.onSearch} />
+                <SearchBar />
             </div>
         </div>
     )

@@ -2,13 +2,15 @@ const router = require("express").Router();
 const getCharById = require("../handlers/getCharById");
 const deleteFav = require("../handlers/deleteFav");
 const login = require("../handlers/login");
+const getFav = require("../handlers/getFav");
 const postFav = require("../handlers/postFav");
 const postUser = require("../handlers/postUser");
 
-router.get("/character/:id", getCharById);
-router.get("/login", login);
-router.post("/login", postUser);
-router.post("/fav", postFav);
-router.delete("/fav/:id", deleteFav);
+router.get("/character/:id", getCharById); //ok
+router.get("/login", login); //ok
+router.post("/login", postUser); //ok
+router.get("/fav", getFav);
+router.post("/fav", postFav); //ok
+router.delete("/fav/:id", deleteFav); //ok
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { createUser } = require("../controllers/userController");
+const { createUser, findUser } = require("../controllers/userController");
 
 const postUser = async (req, res) => {
   const { email, password } = req.body;
@@ -7,11 +7,17 @@ const postUser = async (req, res) => {
     return res.status(400).json({ error: "Faltan datos" });
   }
 
+  const existUser = await findUser(email);
+
   const newUser = { email, password };
 
   try {
-    await createUser(newUser);
-    res.status(200).json({ message: "Usuario creado con éxito" });
+    if (existUser) {
+      return res.status(400).json({ message: "El usuario ya existe" });
+    } else {
+      await createUser(newUser);
+      res.status(200).json({ message: "Usuario creado con éxito" });
+    }
   } catch (error) {
     res.status(500).send({ error: error.message });
   }

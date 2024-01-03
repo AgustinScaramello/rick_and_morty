@@ -15,10 +15,18 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CHAR:
-      return {
-        ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-      };
+      const existingCharacter = state.allCharacters.find(
+        (character) => character.id === action.payload.id
+      );
+
+      if (!existingCharacter) {
+        return {
+          ...state,
+          allCharacters: [...state.allCharacters, action.payload],
+        };
+      }
+
+      return state;
     case REMOVE_CHAR:
       const filteredChar = state.allCharacters.filter(
         (char) => char.id !== action.payload
@@ -31,12 +39,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: action.payload,
-        allCharacters: action.payload,
       };
     case REMOVE_FAV:
       return { ...state, myFavorites: action.payload };
     case FILTER:
-      const filteredFav = state.allCharacters.filter(
+      const filteredFav = state.myFavorites.filter(
         (char) => char.gender === action.payload
       );
       return {
@@ -46,7 +53,7 @@ const rootReducer = (state = initialState, action) => {
     case ORDER:
       return {
         ...state,
-        myFavorites: state.allCharacters.sort((a, b) =>
+        myFavorites: state.myFavorites.sort((a, b) =>
           action.payload === "A" ? a.id - b.id : b.id - a.id
         ),
       };

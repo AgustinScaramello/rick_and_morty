@@ -1,20 +1,26 @@
-const { allFav, createFav } = require("../controllers/favController");
+const { createFav } = require("../controllers/favController");
 
 const postFav = async (req, res) => {
-  const { name, origin, status, image, species, gender } = req.body;
+  const { id, name, origin, status, image, species, gender } = req.body;
 
-  if (!name || !origin || !status || !image || !species || !gender) {
+  if (!id || !name || !origin || !status || !image || !species || !gender) {
     return res.status(401).json({ error: "Faltan datos" });
   }
 
-  const char = { name, origin, status, image, species, gender };
+  const char = {
+    id,
+    name,
+    origin: origin.name,
+    status,
+    image,
+    species,
+    gender,
+  };
 
   try {
-    await createFav(char);
+    const newFav = await createFav(char);
 
-    const favorites = allFav();
-
-    return res.status(200).json(favorites);
+    return res.status(200).json(newFav);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
