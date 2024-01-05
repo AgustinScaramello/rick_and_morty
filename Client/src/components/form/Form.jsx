@@ -24,7 +24,7 @@ export default function Form (props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.login(userData);
+        props.userLogin(userData);
     }
 
 

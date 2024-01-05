@@ -6,6 +6,8 @@ export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const LOGIN = "LOGIN";
+export const ALL_FAV = "ALL_FAV";
 
 export const getCharById = (id) => {
   const apiUrl = `http://localhost:3001/rickandmorty/character/${id}`;
@@ -28,6 +30,18 @@ export const removeChar = (id) => {
   };
 };
 
+export const getAllFav = () => {
+  const apiUrl = "http://localhost:3001/rickandmorty/fav";
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(apiUrl);
+      return dispatch({ type: ALL_FAV, payload: data });
+    } catch (error) {
+      console.error("Error al realizar la solcitud:", error);
+    }
+  };
+};
+
 export const addFav = (character) => {
   const apiUrl = "http://localhost:3001/rickandmorty/fav";
   return async (dispatch) => {
@@ -46,6 +60,21 @@ export const removeFav = (id) => {
     try {
       const { data } = await axios.delete(apiUrl);
       return dispatch({ type: REMOVE_FAV, payload: data });
+    } catch (error) {
+      console.error("Error al realizar la solcitud:", error);
+    }
+  };
+};
+
+export const login = (userData) => {
+  const { email, password } = userData;
+  const apiUrl = "http://localhost:3001/rickandmorty/login";
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(
+        `${apiUrl}?email=${email}&&password=${password}`
+      );
+      return dispatch({ type: LOGIN, payload: data });
     } catch (error) {
       console.error("Error al realizar la solcitud:", error);
     }

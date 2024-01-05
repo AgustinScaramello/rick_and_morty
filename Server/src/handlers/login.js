@@ -15,7 +15,7 @@ const login = async (req, res) => {
     }
 
     if (user && user.password === password) {
-      return res.status(200).json({ access: true });
+      return res.status(200).json(true);
     } else {
       return res.status(403).json({ error: "Contraseña incorrecta" });
     }

@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./components/nav/Nav";
 import About from "./components/about/About";
 import Detail from "./components/detail/Detail";
-import Favorites from "./components/favorites/Favorites";
+import Favorites from "./views/favorites/Favorites";
 import Login from "./views/login/Login";
 import Home from "./views/home/Home";
 

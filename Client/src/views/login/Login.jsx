@@ -1,27 +1,19 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { login } from "../../redux/actions"
 import Form from "../../components/form/Form";
 
 export default function Login(){
 
-  const [access, setAccess] = useState(false);
+  const access = useSelector((state) => state.access)
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-  const login = async (userData) => {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login";
-
-    const { data } = await axios(`${URL}?email=${email}&password=${password}`);
-
-    try {
-      const { access } = data;
-      setAccess(data);
-      access && navigate("/home");
-    } catch (error) {
-      console.log({ error: error.message });
-    }
+  const userLogin = (userData) => {
+    dispatch(login(userData))
+    access && navigate("/home") 
   };
 
   useEffect(() => {
@@ -30,7 +22,7 @@ export default function Login(){
 
   return(
     <div>
-        <Form login={login}/>
+        <Form userLogin={userLogin}/>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import styled from "./Cards.module.css"
 export default function Cards(props) {
    return(
       <div className={styled.cards}>
-         {props.characters?.map(({id, name, species, status, gender, origin, image }) => {
+         {props.characters.map(({id, name, species, status, gender, origin, image }) => {
           return <Card 
             key= {id}
             id= {id}

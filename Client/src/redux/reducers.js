@@ -5,11 +5,14 @@ import {
   ORDER,
   GET_CHAR,
   REMOVE_CHAR,
+  LOGIN,
+  ALL_FAV,
 } from "./actions";
 
 const initialState = {
   allCharacters: [],
   myFavorites: [],
+  access: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -35,6 +38,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allCharacters: filteredChar,
       };
+    case ALL_FAV:
+      return { ...state, myFavorites: action.payload };
     case ADD_FAV:
       return {
         ...state,
@@ -42,6 +47,8 @@ const rootReducer = (state = initialState, action) => {
       };
     case REMOVE_FAV:
       return { ...state, myFavorites: action.payload };
+    case LOGIN:
+      return { ...state, access: action.payload };
     case FILTER:
       const filteredFav = state.myFavorites.filter(
         (char) => char.gender === action.payload
