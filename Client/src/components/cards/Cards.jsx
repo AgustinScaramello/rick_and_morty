@@ -4,7 +4,7 @@ import styled from "./Cards.module.css"
 export default function Cards(props) {
    return(
       <div className={styled.cards}>
-         {props.characters.map(({id, name, species, status, gender, origin, image }) => {
+         {props.characters.length > 0 ? props.characters.map(({id, name, species, status, gender, origin, image }) => {
           return <Card 
             key= {id}
             id= {id}
@@ -12,11 +12,10 @@ export default function Cards(props) {
             status= {status}
             species= {species}
             gender= {gender}
-            origin= {origin.name}
+            origin= {origin}
             image= {image}
-            onClose = {props.onClose}
           />;
-        })}
+        }) : <h1>No hay personajes para mostrar</h1>}
       </div>
    );
 }

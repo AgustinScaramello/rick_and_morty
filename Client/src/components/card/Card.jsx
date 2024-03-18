@@ -1,40 +1,57 @@
-import styled from "./Card.module.css"
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { addFav, removeFav } from "../../redux/actions"
-import { connect } from "react-redux";
+import { addFav, removeFav, removeChar } from "../../redux/actions"
+import styled from "./Card.module.css"
 
-function Card({ id,
+export default function Card({ id,
    name,
    species,
    status,
    gender,
    origin,
    image,
-   onClose,
-   addFav, removeFav,myFavorites}) {
+   }) {
+
+   const allFavorites = useSelector((state) => state.allFavorites)
+   
+   const dispatch = useDispatch()
+
+   const onClose = (id) => {
+      dispatch(removeChar(id))
+   };
 
    const [isFav, setIsFav] = useState(false);
 
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setIsFav(true);
-         }
-      });
-   }, [myFavorites, id]);
+   // const handleFavorite = () => {
+   //    isFav ? dispatch(removeFav(id)) : dispatch(addFav({
+   //       id, 
+   //       name,
+   //       species,
+   //       status,
+   //       gender,
+   //       origin,
+   //       image,
+   //    }))
+   //    setIsFav(!isFav)
+   // }
 
    const handleFavorite = () => {
-      isFav ? removeFav(id) : addFav({
-         id, 
-         name,
-         species,
-         status,
-         gender,
-         origin,
-         image,
-      })
-      setIsFav(!isFav)
+      const existsFav = allFavorites.some((fav) => fav.id === id)
+      if(allFavorites.length > 0 && existsFav){
+         dispatch(removeFav(id))
+      }else{
+         dispatch(addFav({
+            id, 
+            name,
+            species,
+            status,
+            gender,
+            origin,
+            image,
+         }))
+         setIsFav(!existsFav)
+      }
    }
 
    return (
@@ -61,27 +78,7 @@ function Card({ id,
          <h2 className={styled.fuente}>Estado: {status}</h2>
          <h2 className={styled.fuente}>Especie: {species}</h2>
          <h2 className={styled.fuente}>Genero: {gender}</h2>
-         <h2 className={styled.fuente}>Origen: {origin}</h2>
+         <h2 className={styled.fuente}>Origen: {origin.name? origin.name : origin}</h2>
       </div>
    );
 }
-
-const mapStateToProps = (state) => {
-   return {
-      myFavorites: state.myFavorites
-   }
-}
-
-const mapDispatchToProps = (dispatch) => {
-   return{
-      addFav: (character) => {
-         dispatch(addFav(character))
-      },
-      removeFav: (id) => {
-         dispatch(removeFav(id))
-      }
-   }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);

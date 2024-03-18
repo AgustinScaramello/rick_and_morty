@@ -12,6 +12,7 @@ import {
 const initialState = {
   allCharacters: [],
   myFavorites: [],
+  allFavorites: [],
   access: false,
 };
 
@@ -39,18 +40,27 @@ const rootReducer = (state = initialState, action) => {
         allCharacters: filteredChar,
       };
     case ALL_FAV:
-      return { ...state, myFavorites: action.payload };
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allFavorites: action.payload,
+      };
     case ADD_FAV:
       return {
         ...state,
         myFavorites: action.payload,
+        allFavorites: action.payload,
       };
     case REMOVE_FAV:
-      return { ...state, myFavorites: action.payload };
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allFavorites: action.payload,
+      };
     case LOGIN:
       return { ...state, access: action.payload };
     case FILTER:
-      const filteredFav = state.myFavorites.filter(
+      const filteredFav = state.allFavorites.filter(
         (char) => char.gender === action.payload
       );
       return {
